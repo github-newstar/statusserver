@@ -68,11 +68,11 @@ StatusServiceImp::StatusServiceImp() {
     server.conCnt = 0;
     servers_[server.name] = server;
     
-    server.name = cfg["ChatServer2"]["Name"];
-    server.host = cfg["ChatServer2"]["Host"];
-    server.port = cfg["ChatServer2"]["Port"];
-    server.conCnt = 0;
-    servers_[server.name] = server;
+    // server.name = cfg["ChatServer2"]["Name"];
+    // server.host = cfg["ChatServer2"]["Host"];
+    // server.port = cfg["ChatServer2"]["Port"];
+    // server.conCnt = 0;
+    // servers_[server.name] = server;
 }
 
 void StatusServiceImp::insertToken(const int uid, const std::string token) {

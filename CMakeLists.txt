@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(statusServer LANGUAGES CXX)
+project(statusserver LANGUAGES CXX)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -26,9 +26,9 @@ set(_GRPC_GRPCPP gRPC::grpc++)
 # 添加可执行文件和源文件
 file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 file(GLOB PBSOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc)
-add_executable(statusServer ${SOURCES}
+add_executable(statusserver ${SOURCES}
         ${PBSOURCES})
-target_link_libraries(statusServer
+target_link_libraries(statusserver
     ${_REFLECTION}
     ${_GRPC_GRPCPP}
     ${_PROTOBUF_LIBPROTOBUF}
@@ -47,6 +47,6 @@ target_link_libraries(statusServer
 #复制config.ii文件到build 目录
 set(Targetconfig ${CMAKE_CURRENT_SOURCE_DIR}/src/config.ii)
 set(OutPutDir ${CMAKE_BINARY_DIR})
-add_custom_command(TARGET statusServer POST_BUILD
+add_custom_command(TARGET statusserver POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${Targetconfig}" "${OutPutDir}/config.ii")
