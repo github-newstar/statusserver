@@ -29,6 +29,7 @@ Status StatusServiceImp::GetChatServer(ServerContext *context,
                                        }
 Status StatusServiceImp::Login(ServerContext *context, const LoginReq *request,
                                LoginRsp *response){
+    std::cerr << "login has received" << std::endl;
     auto uid = request->uid();
     auto token = request->token();
     std::lock_guard<std::mutex> lock(tokenMtx_);
